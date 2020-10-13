@@ -38,12 +38,22 @@
                     onSubmitFormulario: (event) => {
                         event.preventDefault();
                         const A = parseInt(App.htmlElements.A.value);
-                        App.htmlElements.res.innerHTML = `${A}! = ${App.Methods.calcFactorial(A)}`;
+                        App.htmlElements.res.innerHTML = `${A}! = ${App.Methods.calcFactorial2(A)}`;
                     },
+                    //version recursiva
                     calcFactorial: (n) => {
                         if (n === 0) return 1;
                         return n * App.Methods.calcFactorial(n - 1);
+                    },
+                    //version con loops
+                    calcFactorial2: (n) => {
+                        let acc = 1;
+                        for (let i = n; i > 0; i--) {
+                            acc *= i;
+                        }
+                        return acc;
                     }
+
                 }
             };
             App.init();
